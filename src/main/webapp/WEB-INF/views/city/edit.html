@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<th:block th:if="${message}">
+    <p th:text="${message}"></p>
+</th:block>
+<form th:action="@{/edit-city/}" method="post" th:object="${city}">
+    <input type="hidden" name="id" th:field="*{id}">
+    <table>
+        <tr>
+            <td>Name:</td>
+            <td><input type="text" th:field="*{nameCity}"></td>
+        </tr>
+        <tr>
+            <td>Country:</td>
+            <td>
+                <select th:name="country">
+                    <option th:each="p:${countries}"
+                            th:value="${p.id}"
+                            th:text="${p.nameCountry}">
+
+                    </option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td>Area:</td>
+            <td><input type="text" th:field="*{areaCity}"></td>
+        </tr>
+        <tr>
+            <td>Population:</td>
+            <td><input type="text" th:field="*{population}"></ip></td>
+        </tr>
+        <tr>
+            <td>GDP:</td>
+            <td><input type="text" th:field="*{GDP}"></td>
+        </tr>
+        <tr>
+            <td>Description:</td>
+            <td><input type="text" th:field="*{description}"></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>
+                <input type="submit" value="Edit Form">
+            </td>
+
+                <a th:href="@{/city}">
+                    <input type="button" value="List City" >   </a>
+
+        </tr>
+
+
+
+
+
+    </table>
+</form>
+
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css"
+          rel="stylesheet" integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0"
+          crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css"
+          rel="stylesheet" integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0"
+          crossorigin="anonymous">
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="container">
+    <div class="row g-0">
+        <div class="col-sm-6 col-md-8">
+            <a th:href="@{/city}">List City</a>
+        </div>
+
+    </div>
+<div>
+    <table class="table table-striped table-hover" th:each="city:${city}">
+        <tr>
+            <td>Name</td>
+            <td th:text="${city.nameCity}"></td>
+        </tr>
+        <tr>
+            <td>Country</td>
+            <td th:text="${city.country.nameCountry}"></td>
+        </tr>
+        <tr>
+            <td>Area</td>
+            <td th:text="${city.areaCity}"></td>
+        </tr>
+        <tr>
+            <td> Population</td>
+            <td th:text="${city.getPopulation()}"></td>
+        </tr>
+        <tr>
+            <td> GDP</td>
+            <td th:text="${city.GDP}"></td>
+        </tr>
+        <tr>
+            <td> Description</td>
+            <td th:text="${city.description}"></td>
+        </tr>
+        <tr>
+            <a th:href="@{/edit-city/__${city.id}__}">Edit</a>
+            <a th:href="@{/delete-city/__${city.id}__}">Delete</a>
+        </tr>
+
+    </table>
+</div>
+</div>
+</body>
+</html>
